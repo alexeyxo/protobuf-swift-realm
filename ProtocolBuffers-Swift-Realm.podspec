@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ProtocolBuffers-Swift-Realm"
-  s.version      = "0.3.0"
+  s.version      = "0.4.0"
   s.summary      = "Runtime Library for mapping Protobuf to Realm"
   s.homepage     = "https://github.com/alexeyxo/protobuf-swift-realm"
   s.license      = "Apache 2.0"
