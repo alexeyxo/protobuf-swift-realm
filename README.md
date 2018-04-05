@@ -6,21 +6,21 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 #### Required [Protobuf Swift Realm Compiler](https://github.com/alexeyxo/protobuf-swift-realm-compiler)
 
-## Table of content
+## 📖 Table of content
 <!--ts-->
-   * [How to install](#how-to-install)
+   * [How to install](#-how-to-install)
      * [CocoaPods](#cocoapods)
-   * [Compile .proto files](#compile-proto-files)
-   * [Usage](#usage)
-     * [Get started](#get-started)
-     * [Primary Keys](#primary-keys)    
-     * [Indexing Properties](#indexing-properties)
-     * [Linking Object](#linking-object)     
-     * [Enums](#enums) 
-   * [Credits](#credits)   
+   * [Compile proto files](#-compile-proto-files)
+   * [Usage](#-usage)
+     * [Get started](#-get-started)
+     * [Primary Keys](#-primary-keys)    
+     * [Indexing Properties](#-indexing-properties)
+     * [Linking Objects](#-linking-objects)     
+     * [Enums](#-enums) 
+   * [Credits](#-credits)   
 <!--te-->
 
-## How to install
+## 🔨 How to install
 
 ### Cocoapods
 
@@ -29,15 +29,15 @@ use_frameworks!
 pod 'ProtocolBuffers-Swift-Realm'
 ```
 
-## Compile .proto files
+## 🚧 Compile proto files
 Required [Protobuf Swift Realm Compiler](https://github.com/alexeyxo/protobuf-swift-realm-compiler)
 
 ```
 protoc -I <FILENAME>.proto --swift_realm_out="./<OUT_DIR>"
 ```
 
-## Usage
-### Get started
+## 👨‍💻 Usage
+### 🚀 Get started
 First of all you need to import swift-descriptor into your .proto files for using custom options:
 ```protobuf
 import 'google/protobuf/swift-descriptor.proto';
@@ -48,7 +48,7 @@ Then, you need to add a custom option to generate [Realm Data Model Swift Classe
 option (.google.protobuf.swift_message_options) = { generate_realm_object : true};
 ```
 
-Example:
+#### Example:
 
 ```Employee.proto``` will be generated into ```Example.Employee.realm.swift```
 
@@ -67,7 +67,7 @@ message Employee {
 }
 ```
 
-Generated Realm Data Model Object in Swift:
+#### Generated:
 ```swift
 public class Example_Employee:Object {
     @objc dynamic var firstName:String = ""
@@ -104,7 +104,7 @@ extension Example_Employee:ProtoRealm {
 }
 ```
 
-### Primary Keys
+### 🔑 Primary Keys
 Protobuf Swift Realm Compiler supports 2 ways to generate a [primary key](https://realm.io/docs/swift/latest/#primary-keys):
 
 Add a field of supported type (```string``` or ```int```) with name "id" which will be automatically translated into a primary key:
@@ -118,6 +118,7 @@ message Employee {
 ```
 
 or you can manually set a custom option for a necessary field:
+#### Example:
 ```protobuf
 message Employee {
     option (.google.protobuf.swift_message_options) = { generate_realm_object : true };
@@ -127,7 +128,7 @@ message Employee {
 }
 ```
 
-It will generate:
+#### Generated:
 ```swift
 public class Example_Employee:Object {
     @objc dynamic var key:String = ""
@@ -162,13 +163,13 @@ extension Example_Employee:ProtoRealm {
 }
 ```
 
-## Indexing Properties
+## 👉 Indexing Properties
 To [index](https://realm.io/docs/swift/latest/#indexing-properties) a property use a custom option:
 
 ```protobuf
 option (.google.protobuf.swift_field_options).realm_indexed_propertie = true;
 ```
-Example:
+#### Example:
 
 ```protobuf
 message Employee {
@@ -179,7 +180,7 @@ message Employee {
 }
 ```
 
-It will generate:
+#### Generated:
 ```swift
 public class Example_Employee:Object {
     @objc dynamic var id:String = ""
@@ -213,7 +214,7 @@ extension Example_Employee:ProtoRealm {
 }
 ```
 
-### Linking Object
+### 🔗 Linking Objects
 To create a [relationship](https://realm.io/docs/swift/latest/api/Classes/LinkingObjects.html) between an object and his owning model objects you need to add a custom option:
 ```protobuf
 option (.google.protobuf.swift_message_options) = {
@@ -231,7 +232,7 @@ option (.google.protobuf.swift_message_options) = {
 * **propertyName**: field name in owner object
 * **packageName**: a name of your protobuf package
 
-Example:
+#### Example:
 ```protobuf
 syntax = "proto2";
 import "google/protobuf/swift-descriptor.proto";
@@ -260,7 +261,7 @@ message Department {
 }
 ```
 
-It will generate:
+#### Generated:
 ```swift
 public class Example_Employee:Object {
     @objc dynamic var id:String = ""
@@ -329,7 +330,7 @@ extension Example_Department:ProtoRealm {
 ```
 
 
-### Enums
+### 🔣 Enums
 
 > Realm actually doesn't support Enums, but we do!
 
@@ -338,7 +339,7 @@ To work with enums add a custom option:
 option (.google.protobuf.swift_enum_options) = { generate_realm_object : true};
 ```
 
-Example:
+#### Example:
 
 ```protobuf
 enum DepartmentType {
@@ -349,7 +350,7 @@ enum DepartmentType {
 }	
 ```
 
-It will generate:
+#### Generated:
 ```swift
 public class Example_DepartmentType:Object {
     @objc dynamic var rawValue:String = ""
@@ -376,7 +377,7 @@ extension Example_DepartmentType:ProtoRealm {
 }
 ```
 
-## Credits
+## 👏 Credits
 
 
 Developer - Alexey Khokhlov
