@@ -69,18 +69,18 @@ message Employee {
 
 Generated Realm Data Model Object in Swift:
 ```swift
-public class ProtoApi_Employee:Object {
+public class Example_Employee:Object {
     @objc dynamic var firstName:String = ""
     @objc dynamic var lastName:String = ""
     @objc dynamic var rank:Double = 0.0
     let level:RealmOptional<Int> = RealmOptional<Int>()
 }
-extension ProtoApi_Employee:ProtoRealm {
-    public typealias PBType = ProtoApi.Employee
-    public typealias RMObject = ProtoApi_Employee
+extension Example_Employee:ProtoRealm {
+    public typealias PBType = Example.Employee
+    public typealias RMObject = Example_Employee
     public typealias RepresentationType = Dictionary<String,Any>
-    public static func map(_ proto: ProtoApi.Employee) -> ProtoApi_Employee {
-        let rmModel = ProtoApi_Employee()
+    public static func map(_ proto: Example.Employee) -> Example_Employee {
+        let rmModel = Example_Employee()
         rmModel.firstName = proto.firstName
         rmModel.lastName = proto.lastName
         rmModel.rank = proto.rank
@@ -91,8 +91,8 @@ extension ProtoApi_Employee:ProtoRealm {
         }
         return rmModel
     }
-    public func protobuf() throws -> ProtoApi.Employee {
-        let proto = ProtoApi.Employee.Builder()
+    public func protobuf() throws -> Example.Employee {
+        let proto = Example.Employee.Builder()
         proto.firstName = self.firstName
         proto.lastName = self.lastName
         proto.rank = self.rank
@@ -181,7 +181,7 @@ message Employee {
 
 It will generate:
 ```swift
-public class ProtoApi_Employee:Object {
+public class Example_Employee:Object {
     @objc dynamic var id:String = ""
     @objc dynamic var firstName:String = ""
     @objc dynamic var lastName:String = ""
@@ -192,19 +192,19 @@ public class ProtoApi_Employee:Object {
         return "id"
     }
 }
-extension ProtoApi_Employee:ProtoRealm {
-    public typealias PBType = ProtoApi.Employee
-    public typealias RMObject = ProtoApi_Employee
+extension Example_Employee:ProtoRealm {
+    public typealias PBType = Example.Employee
+    public typealias RMObject = Example_Employee
     public typealias RepresentationType = Dictionary<String,Any>
-    public static func map(_ proto: ProtoApi.Employee) -> ProtoApi_Employee {
-        let rmModel = ProtoApi_Employee()
+    public static func map(_ proto: Example.Employee) -> Example_Employee {
+        let rmModel = Example_Employee()
         rmModel.id = proto.id
         rmModel.firstName = proto.firstName
         rmModel.lastName = proto.lastName
         return rmModel
     }
-    public func protobuf() throws -> ProtoApi.Employee {
-        let proto = ProtoApi.Employee.Builder()
+    public func protobuf() throws -> Example.Employee {
+        let proto = Example.Employee.Builder()
         proto.id = self.id
         proto.firstName = self.firstName
         proto.lastName = self.lastName
