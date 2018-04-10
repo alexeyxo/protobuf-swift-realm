@@ -215,7 +215,7 @@ extension Example_Employee:ProtoRealm {
 ```
 
 ### 🔗 Linking Objects
-To create a [relationship](https://realm.io/docs/swift/latest/api/Classes/LinkingObjects.html) between an object and his owning model objects you need to add a custom option:
+To create a [link](https://realm.io/docs/swift/latest/api/Classes/LinkingObjects.html) between an object and his owning model object you need to add a custom option:
 ```protobuf
 option (.google.protobuf.swift_message_options) = {
     linkedObjects : [{
